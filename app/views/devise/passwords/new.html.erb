@@ -1,0 +1,17 @@
+
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-vertical form-signin' }) do |f| %>
+<h3>Forgot password?</h3>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true, input_html: {class: 'form-control'} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Reset password", class: 'btn btn-primary' %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+
+
