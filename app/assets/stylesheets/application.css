@@ -15,6 +15,98 @@
  *= require_self
  */
 
-form div {
-  margin-bottom: 10px;
-}
+ form div {
+ 	margin-bottom: 10px;
+ }
+
+ #new_ticket_form {max-width: 300px;}
+
+ body {
+ 	padding-top:20px;
+ }
+ .footer {
+ 	border-top-color:#EEEEEE;
+ 	border-top-style:solid;
+ 	border-top-width:1px;
+ 	margin-top:40px;
+ 	padding-bottom:40px;
+ 	padding-top:40px;
+ }
+ .jumbotron {
+ 	background-color:transparent;
+ 	text-align:center;
+ }
+ .jumbotron .btn {
+ 	font-size:21px;
+ 	padding:14px 24px;
+ }
+ .nav-justified {
+ 	background-color:#EEEEEE;
+ 	border:1px solid #CCCCCC;
+ 	border-bottom-left-radius:5px;
+ 	border-bottom-right-radius:5px;
+ 	border-top-left-radius:5px;
+ 	border-top-right-radius:5px;
+ }
+ .nav-justified > li > a {
+ 	background-color:#E5E5E5;
+ 	background-image:-webkit-linear-gradient(top, #F5F5F5 0%, #E5E5E5 100%);
+ 	background-repeat:repeat no-repeat;
+ 	border-bottom-color:#D5D5D5;
+ 	border-bottom-style:solid;
+ 	border-bottom-width:1px;
+ 	color:#777777;
+ 	font-weight:bold;
+ 	margin-bottom:0;
+ 	padding-bottom:15px;
+ 	padding-top:15px;
+ 	text-align:center;
+ }
+ .nav-justified > .active > a, .nav-justified > .active > a:hover, .nav-justified > .active > a:focus {
+ 	background-color:#DDDDDD;
+ 	background-image:none;
+ 	box-shadow:rgba(0, 0, 0, 0.14902) 0 3px 7px inset;
+ }
+ .nav-justified > li:first-child > a {
+ 	border-bottom-left-radius:0;
+ 	border-bottom-right-radius:0;
+ 	border-top-left-radius:5px;
+ 	border-top-right-radius:5px;
+ }
+ .nav-justified > li:last-child > a {
+ 	border-bottom-left-radius:5px;
+ 	border-bottom-right-radius:5px;
+ 	border-bottom-width:0;
+ 	border-top-left-radius:0;
+ 	border-top-right-radius:0;
+ }
+ .nav-justified {
+ 	max-height:52px;
+ }
+ .nav-justified > li > a {
+ 	border-left-color:#FFFFFF;
+ 	border-left-style:solid;
+ 	border-left-width:1px;
+ 	border-right-color:#D5D5D5;
+ 	border-right-style:solid;
+ 	border-right-width:1px;
+ }
+ .nav-justified > li:first-child > a {
+ 	border-bottom-left-radius:5px;
+ 	border-bottom-right-radius:0;
+ 	border-left-width:0;
+ 	border-top-left-radius:5px;
+ 	border-top-right-radius:0;
+ }
+ .nav-justified > li:last-child > a {
+ 	border-bottom-left-radius:0;
+ 	border-bottom-right-radius:5px;
+ 	border-right-width:0;
+ 	border-top-left-radius:0;
+ 	border-top-right-radius:5px;
+ }
+ .masthead, .marketing, .footer {
+ 	padding-left:0;
+ 	padding-right:0;
+ }
+
