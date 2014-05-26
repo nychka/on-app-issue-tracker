@@ -1,15 +1,10 @@
 = simple_form_for(@ticket) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :sender_name
-    = f.input :sender_email
-    = f.input :subject
-    = f.input :body
-    = f.input :code
-    = f.input :department_id
-    = f.input :owner_id
-    = f.input :status_id
+  = f.input :sender_name, label: 'Name', required: true, input_html: {class: 'form-control'}
+  = f.input :sender_email, label: 'Email', required: true, input_html: {class: 'form-control'}
+  = f.input :subject, required: true, input_html: {class: 'form-control'}
+  = f.input :body, required: true, placeholder: 'Enter your problem or question here', input_html: {class: 'form-control'}
+  = f.input :department_id, collection: @departments, required: true, input_html: {class: 'form-control'}
 
-  .form-actions
-    = f.button :submit
+  = f.button :submit, class: 'btn btn-primary form-control'
