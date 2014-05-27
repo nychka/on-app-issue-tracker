@@ -10,6 +10,8 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @response = Response.new
+    @responses = @ticket.responses
   end
 
   # GET /tickets/new
@@ -25,10 +27,10 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = Ticket.add(ticket_params)
 
     respond_to do |format|
-      if @ticket.save
+      if @ticket
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render :show, status: :created, location: @ticket }
       else
@@ -70,6 +72,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:sender_name, :sender_email, :subject, :body, :code, :department_id, :owner_id, :status_id)
+      params.require(:ticket).permit(:sender_name, :sender_email, :subject, :body, :code, :department_id)
     end
 end

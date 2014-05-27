@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526195936) do
+ActiveRecord::Schema.define(version: 20140527085521) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "responses", force: true do |t|
+    t.text     "body"
+    t.integer  "ticket_id",  null: false
+    t.integer  "sender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["ticket_id"], name: "index_responses_on_ticket_id", using: :btree
 
   create_table "statuses", force: true do |t|
     t.string   "name"

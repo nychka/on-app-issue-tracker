@@ -1,0 +1,9 @@
+%table
+  %tr
+    %th 
+    %th 
+
+  - @responses.each do |response|
+    %tr 
+      %td= response.body
+      %td= response.sender

@@ -1,30 +1,16 @@
-%p#notice= notice
+%div.ticket
+  = link_to 'Back', tickets_path, class: 'btn-link'
+  %h2
+    = @ticket.subject
+  %p 
+    = @ticket.sender_name
+    |
+    = @ticket.sender_email
+  %h3
+    = @ticket.body
 
-%p
-  %b Sender name:
-  = @ticket.sender_name
-%p
-  %b Sender email:
-  = @ticket.sender_email
-%p
-  %b Subject:
-  = @ticket.subject
-%p
-  %b Body:
-  = @ticket.body
-%p
-  %b Code:
-  = @ticket.code
-%p
-  %b Department:
-  = @ticket.department_id
-%p
-  %b Owner:
-  = @ticket.owner_id
-%p
-  %b Status:
-  = @ticket.status_id
+  = render 'responses/form'
 
-= link_to 'Edit', edit_ticket_path(@ticket)
-\|
-= link_to 'Back', tickets_path
+  = render partial: 'responses/index', locals: {responses: @responses}
+
+

@@ -15,6 +15,12 @@
  *= require_self
  */
 
+.ticket {
+	max-width: 600px;
+	text-align: left;
+	margin: 0 auto;
+	box-shadow: 1px 2px whitesmoke;
+}
  form div {
  	margin-bottom: 10px;
  }

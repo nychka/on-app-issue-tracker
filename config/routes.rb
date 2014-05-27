@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
   get 'welcome/index'
 
   resources :departments
 
   resources :statuses
 
-  resources :tickets
+  resources :tickets do
+	resources :responses
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
