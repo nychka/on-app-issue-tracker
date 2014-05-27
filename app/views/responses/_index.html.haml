@@ -6,4 +6,4 @@
   - @responses.each do |response|
     %tr 
       %td= response.body
-      %td= response.sender
+      %td= response.author.email if response.author

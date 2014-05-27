@@ -1,5 +1,5 @@
 %div.ticket
-  = link_to 'Back', tickets_path, class: 'btn-link'
+  = link_to 'Back', tickets_path, class: 'btn-link' if current_user
   %h2
     = @ticket.subject
   %p 

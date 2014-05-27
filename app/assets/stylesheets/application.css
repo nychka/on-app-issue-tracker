@@ -14,13 +14,14 @@
  *= require_tree .
  *= require_self
  */
-
+/*#new_ticket {margin: 0px;}*/
 .ticket {
-	max-width: 600px;
 	text-align: left;
 	margin: 0 auto;
 	box-shadow: 1px 2px whitesmoke;
 }
+
+form {max-width: 400px; text-align: left;}
  form div {
  	margin-bottom: 10px;
  }

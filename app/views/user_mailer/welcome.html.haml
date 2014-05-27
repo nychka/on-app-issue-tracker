@@ -1,0 +1,9 @@
+%h1 Welcome, you have successfully created a new ticket!
+%hr
+%h2 
+	= @ticket.subject
+%p 
+	= @ticket.body
+%p
+	Here your credentials:
+	= link_to 'Ticket history', url_for(ticket_path(@ticket, only_path: false))

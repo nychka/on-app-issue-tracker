@@ -1,0 +1,9 @@
+%h1 You've got a new response!
+
+%h3 
+  Author:
+  = @response.author.email
+%p 
+  = @response.body
+
+= link_to 'Show full history of ticket', url_for(ticket_path(@ticket, only_path: false))
