@@ -29,14 +29,15 @@ class ResponsesController < ApplicationController
     @response.sender = current_user.id if current_user
     respond_to do |format|
       if @response.save
-         send_response if current_user
-         message = {notice: 'Response was successfully created.'}
+        deliver_response if current_user
+        @ticket.toggle_status
+        message = {notice: 'Response was successfully created.'}
       else
-         message = {error: @response.errors}
-      end
-      format.html { redirect_to @ticket, message}
-    end
-  end
+       message = {error: @response.errors}
+     end
+     format.html { redirect_to @ticket, message}
+   end
+ end
 
   # PATCH/PUT /responses/1
   # PATCH/PUT /responses/1.json
@@ -76,7 +77,7 @@ class ResponsesController < ApplicationController
     def response_params
       params.require(:response).permit(:body, :sender)
     end
-    def send_response
+    def deliver_response
       UserMailer.notify_about_response(@ticket).deliver
     end
-end
+  end

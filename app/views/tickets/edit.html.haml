@@ -1,6 +1,18 @@
 %h1 Editing ticket
 
-= render 'form'
+= simple_form_for(@ticket, html: {id: 'new_ticket_form'}) do |f|
+  = f.error_notification
+
+  = f.input :sender_name, label: 'Name', required: true, input_html: {class: 'form-control'}
+  = f.input :sender_email, label: 'Email', required: true, input_html: {class: 'form-control'}
+  = f.input :subject, required: true, input_html: {class: 'form-control'}
+  = f.input :body, required: true, placeholder: 'Enter your problem or question here', input_html: {class: 'form-control'}
+  = f.input :department_id, collection: @departments, required: true, input_html: {class: 'form-control'}
+  - if current_user
+    = f.input :owner_id, collection: @users,value_method: :id,label_method: :email, input_html: {class: 'form-control'}
+    = f.input :status_id, collection: @statuses, input_html: {class: 'form-control'}
+
+  = f.button :submit, class: 'btn btn-primary form-control'
 
 = link_to 'Show', @ticket
 \|

@@ -14,14 +14,31 @@
  *= require_tree .
  *= require_self
  */
-/*#new_ticket {margin: 0px;}*/
-.ticket {
-	text-align: left;
-	margin: 0 auto;
-	box-shadow: 1px 2px whitesmoke;
-}
 
-form {max-width: 400px; text-align: left;}
+
+ .right-inner-addon {
+ 	position: relative;
+ 	max-width: 200px;
+ }
+ .right-inner-addon input {
+ 	padding-right: 30px;    
+ }
+ .right-inner-addon i {
+ 	position: absolute;
+ 	right: 0px;
+ 	padding: 10px 12px;
+ 	pointer-events: none;
+ }
+
+ .ticket {
+ 	text-align: left;
+ 	margin: 0 auto;
+  margin-top: 10px;
+ 	box-shadow: 1px 2px whitesmoke;
+ }
+ ul.nav {margin-bottom: 10px;}
+ #wrapper {margin-top: 20px;}
+ form {max-width: 400px; text-align: left;}
  form div {
  	margin-bottom: 10px;
  }

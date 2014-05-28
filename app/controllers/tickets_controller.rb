@@ -4,6 +4,14 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
+    if params[:status] 
+      status = params[:status].to_sym
+      if Status.statuses.has_key? status
+        status_id = Status.statuses[status] 
+        @tickets = Ticket.where(status_id: status_id)
+        return
+      end
+    end
     @tickets = Ticket.all
   end
 
@@ -22,6 +30,9 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
+    @departments = Department.all
+    @users = User.all
+    @statuses = Status.all
   end
 
   # POST /tickets
@@ -73,6 +84,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:sender_name, :sender_email, :subject, :body, :code, :department_id)
+      params.require(:ticket).permit(:sender_name, :sender_email, :subject, :body, :code, :department_id, :status_id, :owner_id)
     end
-end
+  end

@@ -1,33 +1,50 @@
-%h1 Listing tickets
+%div#wrapper
+  %div.panel
+    %ul.nav.nav-pills
+      %li{class: ("active" unless params[:status])}
+        = link_to 'All', tickets_path
+      %li{class: ("active" if params[:status] == "waiting_for_staff_response")}
+        = link_to 'New', tickets_path(status: :waiting_for_staff_response)
+      %li{class: ("active" if params[:status] == "on_hold")}
+        = link_to 'Oh hold', tickets_path(status: :on_hold)
+      %li{class: ("active" if params[:status] == "completed")}
+        = link_to 'Completed', tickets_path(status: :completed)
+      %li{class: ("active" if params[:status] == "cancelled")}
+        = link_to 'Canceled', tickets_path(status: :cancelled)
 
-%table
-  %tr
-    %th Sender name
-    %th Sender email
-    %th Subject
-    %th Body
-    %th Code
-    %th Department
-    %th Owner
-    %th Status
-    %th
-    %th
-    %th
+      %div.right-inner-addon.pull-right
+        %i.glyphicon.glyphicon-search
+        %input{type: "search",class: "form-control", placeholder: "Search"}
+    
+  - if @tickets.count > 0
+    %table{class: 'table table-striped table-bordered table-condensed'}
+      %tr
+        %th Status
+        %th Subject
+        %th Code
+        %th Department
+        %th Owner
+        %th Sender name
+        %th Sender email
+        %th
+        %th
+        %th
 
-  - @tickets.each do |ticket|
-    %tr
-      %td= ticket.sender_name
-      %td= ticket.sender_email
-      %td= ticket.subject
-      %td= ticket.body
-      %td= ticket.code
-      %td= ticket.department_id
-      %td= ticket.owner_id
-      %td= ticket.status_id
-      %td= link_to 'Show', ticket
-      %td= link_to 'Edit', edit_ticket_path(ticket)
-      %td= link_to 'Destroy', ticket, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @tickets.each do |ticket|
+        %tr
+          %td= ticket.status
+          %td= ticket.subject
+          %td= ticket.code
+          %td= ticket.department
+          %td= ticket.owner
+          %td= ticket.sender_name
+          %td= ticket.sender_email
+          %td= link_to 'Show', ticket
+          %td= link_to 'Edit', edit_ticket_path(ticket)
+          %td= link_to 'Destroy', ticket, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - else
+    %p
+      No tickets
+  %br
 
-%br
-
-= link_to 'New Ticket', new_ticket_path
+  = link_to 'New Ticket', new_ticket_path
