@@ -11,6 +11,7 @@
   <div class="container">
     <div class="navbar pull-right">
       <% if current_user %>
+      <%= link_to 'Go to Tickets: ', tickets_path %>
       Logged as: <%= current_user.email %> |
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
       <% else %>
