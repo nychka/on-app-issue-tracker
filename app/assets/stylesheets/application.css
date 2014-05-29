@@ -18,8 +18,10 @@
 
  .right-inner-addon {
  	position: relative;
- 	max-width: 200px;
+ 	/*max-width: 200px;*/
  }
+ #search-button {padding: 5px 11px; font-size: 14px;}
+ 
  .right-inner-addon input {
  	padding-right: 30px;    
  }

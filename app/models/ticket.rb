@@ -1,10 +1,18 @@
 class Ticket < ActiveRecord::Base
-	#has_one :status
-	has_many :responses
+	has_many :responses, dependent: :destroy
+
 	validates_presence_of :sender_name
 	validates_presence_of :sender_email
 	validates_presence_of :subject
 	validates_presence_of :body
+
+	searchable do
+		text :code
+		text :subject
+		text :body
+		#text :subject
+		#text :body
+	end
 	
 	def to_param
 		code

@@ -50,3 +50,5 @@ end
 gem 'devise'
 gem 'simple_form'
 gem 'haml-rails', '>= 0.3.4'
+gem 'sunspot_rails'
+gem 'sunspot_solr'

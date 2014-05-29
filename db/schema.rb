@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527085521) do
+ActiveRecord::Schema.define(version: 20140529064612) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140527085521) do
     t.string   "sender_email"
     t.string   "subject"
     t.text     "body"
-    t.string   "code"
+    t.text     "code"
     t.integer  "department_id"
     t.integer  "owner_id"
     t.integer  "status_id"

@@ -11,6 +11,10 @@ class TicketsController < ApplicationController
         @tickets = Ticket.where(status_id: status_id)
         return
       end
+    elsif params[:search]
+      search = Ticket.search{fulltext params[:search]}
+      @tickets = search.results
+      return
     end
     @tickets = Ticket.all
   end
