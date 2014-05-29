@@ -74,13 +74,10 @@ class Ticket < ActiveRecord::Base
 	end
 	private
 	def self.generate_code(count = 2)
-		#ABC-123-HGH-565
 		str = String.new
 		count.times do |n|
 			str += ('A'..'Z').to_a.shuffle.last(3).join("")
-			str += "-"
 			str += (0..9).to_a.shuffle.last(3).join("")
-			str += "-" unless count == n + 1
 		end
 		str
 	end

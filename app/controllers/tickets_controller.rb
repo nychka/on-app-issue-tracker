@@ -11,9 +11,7 @@ class TicketsController < ApplicationController
         @tickets = Ticket.where(status_id: status_id)
       end
     elsif params[:search]
-      str = escape params[:search]
-      p str
-      search = Ticket.search{fulltext str}
+      search = Ticket.search{fulltext params[:search]}
       @tickets = search.results
     else
       @tickets = Ticket.all
@@ -90,8 +88,5 @@ class TicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       params.require(:ticket).permit(:sender_name, :sender_email, :subject, :body, :code, :department_id, :status_id, :owner_id)
-    end
-    def escape str
-      str.gsub(/[\/+\-!(){}\[\]^\"~\*?\\:]/) {|item| "\\#{item}"}
     end
   end
